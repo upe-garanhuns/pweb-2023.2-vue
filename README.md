@@ -132,30 +132,107 @@ export default {
 
 # Seção 3: Padrões de Projeto e Implementação Avançada no Vue.js
 
-- Nesta seção, abordem os padrões de projeto fundamentais incorporados no Vue.js e como eles facilitam o desenvolvimento de aplicações robustas e manuteníveis.
-- Além disso explorem técnicas avançadas de implementação que otimizam a eficiência e a escalabilidade dos projetos Vue.
+Os padrões de design são soluções confiáveis para problemas comuns enfrentados pelos desenvolvedores de software ao construir sistemas. Eles não são específicos para uma linguagem de programação ou estrutura, mas servem como ferramentas gerais para resolver problemas. Em desenvolvimento frontend, os padrões de design podem oferecer soluções reutilizáveis para problemas recorrentes na construção de interfaces de usuário e aplicativos web.
 
 ## 3.1 Padrões de Projeto no Vue.js
 
-Destaquem que Vue.js utiliza vários padrões de design para resolver problemas comuns de desenvolvimento web.
-incluam subseçòes para citarem os padrões de maneira geral de forma a ajudar a compreender como a criação de componentes e aplicações podem ser mais eficientes como no exemplo abaixo:
+Vue.js é um framework baseado em componentes, onde o conceito de componentes já é um padrão de design por si só. Componentes são unidades de código autocontidas que podem ser reutilizadas em toda a aplicação, promovendo modularidade e manutenibilidade. Além da estrutura baseada em componentes, Vue utiliza o conceito de data binding reativo. Mudanças nos dados de um componente são automaticamente refletidas na interface do usuário, resultando em código mais conciso e legível. Vue também oferece suporte a diretivas personalizadas, que podem ser anexadas como funções JavaScript a elementos HTML para adicionar funcionalidades personalizadas. Essa flexibilidade permite a implementação de vários padrões de design, como o padrão observador e o padrão de gerenciamento de estado.
+
+## Padrões de Design no Vue podem:
+- Oferecer uma abordagem estruturada para resolver problemas, reduzindo a probabilidade de erros e eliminando a necessidade de soluções personalizadas.
+- Aprimorar a reutilização de código, evitando a reinvenção de soluções para problemas semelhantes. Os padrões ajudam a desacoplar vários componentes do sistema.
+- Melhorar a comunicação, estabelecendo um vocabulário comum por meio de padrões de design que simplificam a colaboração e facilitam a compreensão do código entre os desenvolvedores.
+- Promover práticas de codificação uniformes, garantindo que a base de código mantenha um estilo e estrutura consistentes, mesmo quando vários desenvolvedores contribuem para um projeto.
+- Melhorar a escalabilidade, simplificando a distribuição e o gerenciamento, o que ajuda a lidar com a complexidade e garantir a adaptabilidade à medida que o projeto cresce e os requisitos mudam.
+- Aprimorar a manutenção, pois o código estruturado com padrões de design geralmente é mais fácil de manter. Desenvolvedores podem consultar padrões estabelecidos ao lidar com problemas ou fazer alterações, evitando soluções personalizadas complexas e difíceis de entender.
+- Elevar a qualidade do código, ao aplicar ou incentivar melhores práticas por meio de padrões de design, como encapsulamento, abstração e polimorfismo. Isso resulta em código mais legível, manutenível e extensível.
+- Servir como uma forma de documentação integrada. O uso de padrões de design permite que qualquer pessoa revisando seu código reconheça os padrões utilizados, oferecendo insights sobre a arquitetura e o comportamento do sistema, mesmo quando a documentação é limitada.
+- Esses benefícios economizam tempo e esforço para os desenvolvedores, destacando o papel crucial dos padrões de design na engenharia e desenvolvimento de software. Agora, avancemos para alguns padrões avançados que podem ser aplicados no Vue para resolver diferentes problemas.
+
+
 
 ### 3.1.1 Padrão Observer
 
-- Citem o padrão e destaquem como ele é fundamental para o sistema reativo do Vue, permitindo que as propriedades sejam observadas e que mudanças nelas desencadeiem atualizações automáticas na UI.
+O padrão observer é um padrão de design comportamental que permite criar sistemas pouco acoplados, fáceis de manter e estender. É especialmente útil em aplicações onde é necessário notificar vários objetos sobre mudanças de estado em um único objeto. Este padrão, também conhecido como padrão observável, permite que um objeto notifique seus dependentes ou observadores sobre quaisquer mudanças de estado. O sujeito, ou objeto observável, mantém uma lista de seus observadores e chama seus métodos de atualização sempre que há mudanças em seu estado. No contexto do Vue, o padrão observador é usado para gerenciar reatividade e lidar com atualizações dinâmicas na interface do usuário. Vejamos um exemplo que exibe uma notificação toda vez que uma caixa de seleção é marcada ou desmarcada.
 
-1. **Explique o Padrão:** Descrevam o padrão Observer, focando em "observáveis" e "observadores". Discutam como o Vue utiliza este padrão para monitorar mudanças nos dados e atualizar a DOM correspondente.
+## Implementação do Vue.js
+O Vue.js integra o padrão observer de forma transparente para gerenciar a reatividade dos dados em sua aplicação. Veja como funciona:
+1. Dados como Sujeitos: Quando você declara propriedades de dados em um componente Vue, o Vue as transforma internamente em objetos reativos. Estes objetos reativos agem como sujeitos no padrão observer.
+2. Rastreamento de Dependências: O Vue rastreia automaticamente as dependências entre os componentes e os dados dos quais eles dependem. Ele usa uma técnica chamada coleta de dependências para identificar quais componentes precisam ser renderizados novamente após a modificação dos dados.
+3. Sistema de Reatividade: Quando um objeto reativo (sujeito) passa por uma mudança (mutação), o sistema de reatividade do Vue dispara um processo de notificação.
+4. Atualizações de Componentes: Os componentes que se inscrevem (observam) os dados alterados são alertados pelo Vue. Eles recebem os dados atualizados e renderizam novamente seus templates, refletindo as mudanças na interface do usuário.
 
-2. **Exemplo Prático:** Mostrem um exemplo simples de como as propriedades reativas no Vue.js atuam como observáveis e como componentes que as utilizam se tornam observadores. Ilustrem com código como mudanças nos dados levam à re-renderização da UI.
-- ```javascript
-   var vm = new Vue({
-     data: {
-       message: 'Olá Vue!'
-     },
-     template: '<div>{{ message }}</div>'
-   });
+2. **Exemplo Prático:**
+   Dê uma olhada em uma implementação simples do padrão observador:
+   class Subject {
+    __value
 
-Expliquem que, quando message é alterado, o Vue automaticamente atualiza todos os lugares onde message é utilizado na UI.
+    constructor(value) {
+        this.__value = value
+        this.__observers = []
+    }
+
+    set value(newValue) {
+        this.__value = newValue
+        for (const observer of this.__observers) {
+            observer.update(this)
+        }
+    }
+
+    get value() {
+        return this.__value
+    }
+
+    subscribe(observer) {
+        this.__observers.push(observer)
+    }
+}
+
+class Observer {
+    update(subject) {
+        console.log(`new value: ${subject.value}`)
+    }
+}
+no código, você pode observar que após cada definição de valor para nosso sujeito, o método update será executado para todos os seus observadores. Agora, vamos criar um sujeito e um observador para testar este código.
+![image](https://github.com/upe-garanhuns/pweb-2023.2-vue/assets/104845006/ba57e3c5-22a2-4290-a6c3-c69dd15e36f1)
+Agora, como você pode ver, nosso observador é notificado e registra o novo valor do sujeito no console.
+## Sistema de Reatividade 
+Um ref ou propriedade reativa (sujeito) armazena um objeto dep (dependência), que é essencialmente um conjunto de efeitos (observadores no código acima). Quando recuperamos um valor de um ref, o método track é chamado. Por outro lado, ao atribuir um valor a um ref, o método trigger é invocado, indicando que ocorreu uma alteração na propriedade reativa. Em breve, discutiremos sobre efeitos, tracks e triggers.
+Efeito (Effect)
+Em termos simples, um efeito no Vue pode ser visto como um observador.
+class Effect {
+
+  constructor(fn) {
+    this.fn = fn
+  }
+
+  // for a computed it will update inner value and
+  // for a component it will render needed part of that
+  run() {
+    return this.fn()
+  }
+  ...
+}
+O objeto effect, quando instanciado, recebe uma função em seu construtor. A principal responsabilidade do efeito é observar quaisquer alterações nas propriedades reativas dentro dessa função. 
+Métodos Track e Trigger
+Quando o valor de uma propriedade reativa é acessado dentro de um novo escopo de código, como uma função de renderização ou método getter computado, a função track é acionada. O ActiveEffect é adicionado aos dependentes da propriedade reativa. Nesse cenário, o ActiveEffect é um efeito inicializado usado em um computado ou componente para detectar alterações nas propriedades reativas. Esse mecanismo garante que o computado ou componente esteja ciente de quaisquer modificações na propriedade reativa.
+
+function track(target) {
+  // component.effect or computed.effect is equal to activeEffect
+  // it is actually a subscriber
+  target.dep.add(activeEffect)
+}
+
+Quando o valor de uma propriedade reativa é alterado, a função trigger é chamada. No entanto, a função trigger executa apenas os efeitos associados a ela se o novo valor for diferente do valor antigo. Dessa forma, o trigger garante que apenas os efeitos dependentes do valor alterado sejam executados.
+
+function trigger(target) {
+  const effects = [...target.dep]
+  for (const effect of effects) {
+    // we will run effect of our reactive property. one of this effects
+    // are computed.effect. and now computed can update its inner value
+    effect.run()
+  }
+}
 
 ## 4 Técnicas Avançadas de Implementação
 
