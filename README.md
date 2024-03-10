@@ -164,6 +164,7 @@ O Vue.js integra o padrão observer de forma transparente para gerenciar a reati
 
 2. **Exemplo Prático:**
    Dê uma olhada em uma implementação simples do padrão observador:
+   
    class Subject {
     __value
 
@@ -193,13 +194,15 @@ class Observer {
         console.log(`new value: ${subject.value}`)
     }
 }
+
 no código, você pode observar que após cada definição de valor para nosso sujeito, o método update será executado para todos os seus observadores. Agora, vamos criar um sujeito e um observador para testar este código.
 ![image](https://github.com/upe-garanhuns/pweb-2023.2-vue/assets/104845006/ba57e3c5-22a2-4290-a6c3-c69dd15e36f1)
 Agora, como você pode ver, nosso observador é notificado e registra o novo valor do sujeito no console.
 ## Sistema de Reatividade 
 Um ref ou propriedade reativa (sujeito) armazena um objeto dep (dependência), que é essencialmente um conjunto de efeitos (observadores no código acima). Quando recuperamos um valor de um ref, o método track é chamado. Por outro lado, ao atribuir um valor a um ref, o método trigger é invocado, indicando que ocorreu uma alteração na propriedade reativa. Em breve, discutiremos sobre efeitos, tracks e triggers.
 Efeito (Effect)
-Em termos simples, um efeito no Vue pode ser visto como um observador.
+- Em termos simples, um efeito no Vue pode ser visto como um observador.
+
 class Effect {
 
   constructor(fn) {
@@ -213,6 +216,7 @@ class Effect {
   }
   ...
 }
+
 O objeto effect, quando instanciado, recebe uma função em seu construtor. A principal responsabilidade do efeito é observar quaisquer alterações nas propriedades reativas dentro dessa função. 
 Métodos Track e Trigger
 Quando o valor de uma propriedade reativa é acessado dentro de um novo escopo de código, como uma função de renderização ou método getter computado, a função track é acionada. O ActiveEffect é adicionado aos dependentes da propriedade reativa. Nesse cenário, o ActiveEffect é um efeito inicializado usado em um computado ou componente para detectar alterações nas propriedades reativas. Esse mecanismo garante que o computado ou componente esteja ciente de quaisquer modificações na propriedade reativa.
