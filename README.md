@@ -11,7 +11,7 @@ Este guia serve como um roteiro detalhado para alunos que estão preparando um s
 
 ## 1.1 O que é Vue.js?
 
-- Destaquem que o `Vue.js` é um `framework progressivo` para a construção de interfaces de usuário. Expliquem isso arqruiteturalmente falando. lembrem-se de conceitar e detalhar o que é `reatividade` neste framework e no paradigma de desenvolvimento.
+- `Vue` [viu] é um framework progressivo de JavaScript usado para a criação de interfaces de usuário. Ele provê uma programação declarativa, reativa e baseada em componentes que permite o desenvolvimento eficiente de interfaces, sejam elas simples ou complexas.
 - Abordem que ao contrário de outros frameworks monolíticos o `Vue.js` é projetado para ser adotado incrementalmente. Discutam o que significa isso de maneira prática com exemplos e mostre os impactos (benefícios/malefícios) desta característica.
 - Destrinchem o núcleo da biblioteca, ressaltem o motivo e detalhem da parspectiva de uma arquitetura `MVC` e lembrem-se de ressaltar que ele se concentra apenas na camada de visualização e porquê.
 - Detalhem os impactos disso como por exemplo a facilidade de integração com outras bibliotecas, o fato de tornar confusa a definição da arquitetura de um projeto com a escolha dessa tecnologia, ou até mesmo a possibilidade de integrar com projetos existentes.
