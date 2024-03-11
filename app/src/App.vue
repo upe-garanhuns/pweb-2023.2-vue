@@ -1,33 +1,21 @@
+import { RouterLink } from 'vue-router';
 <template>
-  <div>
-      <BaseAlert
-          :variant="variant"
-      >
-          {{ text }}
-      </BaseAlert>
-  </div>
+  <nav>
+    <RouterLink to="/">Home</RouterLink> |
+    <RouterLink :to="rotaDinamica">Serviços</RouterLink> |
+    <router-link to="/about">About</router-link>
+  </nav>
+
+  <RouterView/>
 </template>
 
 <script>
-import BaseAlert from '@/components/BaseAlert';
 export default {
-  name: 'App',
-  components: { BaseAlert },
-  data() {
-      return {
-          variant: 'success',
-          text: 'Seu formulário foi enviado'
-      }
-  },
-  beforeUpdate() {},
-  updated() {},
-  beforeCreate() {},
-  created() {},
-  beforeMount() {},
-  mounted() {},
-  watch: {},
-  computed: {},
-  methods: {}
+    data() {
+        return {
+            rotaDinamica: { name: 'servicos' }
+        }
+    },
 }
 </script>
 
@@ -36,7 +24,20 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
   color: #2c3e50;
-  margin: 60px;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
