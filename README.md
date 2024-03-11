@@ -1,13 +1,8 @@
-Template para Seminário sobre a tecnologia vue
-# Guia Detalhado para Seminário de `Vue.js`
+# `Vue.js`: onde o progresso e a flexibilidade se encontram
 
-Este guia serve como um roteiro detalhado para alunos que estão preparando um seminário técnico e aprofundado sobre `Vue.js`, com foco na arquitetura e implementação.
+Este é uma *overview* de diferentes conceitos pertinentes ao framework `Vue.js`
 
 # Seção 1: Introdução ao Vue.js
-
-- Nesta seção, vocês devem abordar o que é `Vue.js`, por que ele é uma escolha popular entre os desenvolvedores, e como iniciar projetos usando este framework. 
-- O objetivo é fornecer aos colegas que estão assitindo a apresentação uma visão geral com base sólida sobre o que vocês pesquisaram sobre o `Vue.js`. 
-- Vocês devem destacar suas principais características, tecnologias associadas, aspectos arquiteturais marcantes e potenciais benefícios.
 
 ## 1.1 O que é Vue.js?
 
@@ -25,16 +20,68 @@ Este guia serve como um roteiro detalhado para alunos que estão preparando um s
   - Desvantagens:
 
   ![framework progressivo](./public/img/framework-progressivo.png)
-  - COLOCAR IMAGEM DO CÓDIGO
+  - O código presente na pasta **framework_progressivo** na branch *develop-pedro-correia* mostra uma aplicação bem simples de como o `Vue` pode ser adicionado a uma aplicação já existente.
 
 ### 1.1.3 Programação reativa
 - Programação reativa é um paradigma de programação declarativa baseado na ideia de processamento de eventos assíncronos e fluxos de dados. Nesse contexto, o `Vue.js` se introduz como um framework de abordagem binária - usando um observador e um gatilho - para implementar um **efeito reativo** em sua estrutura. Seu sistema de reatividade funciona em tempo de execução, ou seja, o processo ocorre enquanto o código é executado no navegador.
   - Vantagens: funciona sem precisar de uma build e há menos casos atípicos.
   - Desvantagens: é limitado à sintaxe do JavaScript.
-- COLOCAR OS CÓDIGOS DO *REACTIVITY IN DEPTH*
 
-- Destrinchem o núcleo da biblioteca, ressaltem o motivo e detalhem da parspectiva de uma arquitetura `MVC` e lembrem-se de ressaltar que ele se concentra apenas na camada de visualização e porquê.
-- Detalhem os impactos disso como por exemplo a facilidade de integração com outras bibliotecas, o fato de tornar confusa a definição da arquitetura de um projeto com a escolha dessa tecnologia, ou até mesmo a possibilidade de integrar com projetos existentes.
+- **Problema da reatividade:**
+```javascript
+let A0 = 1
+let A1 = 2
+let A2 = A0 + A1
+
+console.log(A2) // 3
+
+A0 = 2
+console.log(A2) // continua sendo 3
+```
+
+- **A teoria da solução:**
+```javascript
+let A2
+
+function update() {
+  A2 = A0 + A1
+}
+```
+- É necessário ter uma função poderosa que possa invocar o update() (o efeito) sempre que A0 ou A1 (as dependências) mudarem:
+```javascript
+whenDepsChange(update)
+```
+- Não é possível rastrear a leitura e a escrita de variáveis locais como no exemplo. Simplesmente não há um mecanismo para fazer isso em JavaScript puro. O que se pode fazer, no entanto, é interceptar a leitura e escrita de propriedades de objetos.
+
+- Existem duas maneiras de interceptar o acesso a propriedades no JavaScript: `getters/setters` e `Proxies`. O `Vue 2` utilizava exclusivamente `getters/setters` devido às limitações de suporte do navegador. No `Vue 3`, `Proxies` são usados para objetos reativos e `getters/setters` são usados para `refs`. Aqui está um pseudo-código que ilustra como eles funcionam:
+```javascript
+function reactive(obj) {
+  return new Proxy(obj, {
+    get(target, key) {
+      track(target, key)
+      return target[key]
+    },
+    set(target, key, value) {
+      target[key] = value
+      trigger(target, key)
+    }
+  })
+}
+
+function ref(value) {
+  const refObject = {
+    get value() {
+      track(refObject, 'value')
+      return value
+    },
+    set value(newValue) {
+      value = newValue
+      trigger(refObject, 'value')
+    }
+  }
+  return refObject
+}
+```
 
 **Orientações adicionais:**
 
@@ -164,20 +211,20 @@ Aqui vocês podem destacar como `Vue.js` ganhou popularidade por sua facilidade 
 - **COLOCAR EXEMPLO PRÁTICO**
 - Isso também significa que a seguinte propriedade computada nunca será atualizada, porque `Date.now()` não é uma dependência reativa:
 
-`
+```javascript
 computed: {
   now() {
     return Date.now()
   }
 }
-`
+```
 
 ### 2.2.3 Virtual DOM
 
 - O **DOM virtual (VDOM)** é um conceito de programação onde uma representação ideal, ou "virtual", de uma interface do usuário é mantida na memória e sincronizada com o "real" DOM. O conceito foi pioneirado pelo React e foi adotado em muitos outros frameworks com diferentes implementações, incluindo o `Vue`.
 - O **DOM virtual** é mais um padrão do que uma tecnologia específica, então não há uma implementação canônica única. Podemos ilustrar a ideia usando um exemplo simples:
 
-`
+```javascript
 const vnode = {
   type: 'div',
   props: {
@@ -187,7 +234,7 @@ const vnode = {
 	/* outros vnodes */
   ]
 }
-`
+```
 
 - Aqui, vnode é um objeto JavaScript simples (um "nó virtual") representando um elemento `<div>`. Ele contém todas as informações que precisamos para criar o elemento real. Ele também contém mais nós filhos virtuais, o que o torna a raiz de uma árvore **DOM virtual**.
 - Um renderizador em tempo de execução pode percorrer uma árvore **DOM virtual** e construir a partir dela uma árvore **DOM real**. Esse processo é chamado de **montagem**.
