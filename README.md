@@ -1,6 +1,6 @@
 # `Vue.js`: onde o progresso e a flexibilidade se encontram
 
-Este é uma *overview* de diferentes conceitos pertinentes ao framework `Vue.js`
+Esta é uma *overview* de diferentes conceitos pertinentes ao framework `Vue.js`
 
 # Seção 1: Introdução ao Vue.js
 
@@ -83,17 +83,36 @@ function ref(value) {
 }
 ```
 
-**Orientações adicionais:**
-
-- **Explanação:** Descrevam como o `Vue.js` se posiciona entre outros frameworks e bibliotecas, como `React` e `Angular`, em termos de curva de aprendizado, performance e uso.
-
 ## 1.2 Por que Vue.js?
 
 Aqui vocês podem destacar como `Vue.js` ganhou popularidade por sua facilidade de integração, reatividade, e a eficiente maneira de desenvolver componentes reutilizáveis.
 
-**Orientações adicionais:**
+### 1.2.1 Comparação
 
-- **Comparação:** Preparem uma comparação breve com outros `frameworks`, focando em pontos como tamanho do framework, velocidade, e flexibilidade.
+- Curva de Aprendizado:
+    - React: Apresenta uma curva de aprendizado moderada, contudo, conta com uma comunidade robusta e uma ampla gama de recursos de aprendizado.
+    - Angular: Mais complexo em comparação aos outros, requerendo um investimento de tempo para dominar todas as suas funcionalidades.
+    - Vue: Mais acessível para iniciantes, oferece uma curva de aprendizado suave e documentação clara.
+
+- Ecossistema e Suporte:
+
+    - React: Possui uma comunidade vasta, uma grande quantidade de recursos disponíveis e é amplamente adotado.
+    - Angular: Desfruta de suporte oficial do Google, mas pode ser mais desafiador encontrar soluções para questões menos comuns.
+    - Vue: Sua comunidade está em crescimento, oferecendo uma ampla variedade de recursos e suporte.
+
+- Performance e Tamanho do Pacote:
+
+   - React: Apresenta bom desempenho, mas pode necessitar de mais bibliotecas externas para funcionalidades avançadas.
+   - Angular: É robusto, porém pode resultar em aplicativos maiores, o que pode impactar na performance.
+   - Vue: É leve e rápido, mesmo para pequenos projetos, e permite a adição de funcionalidades conforme necessário.
+
+### 1.2.2 Popularidade
+
+- A seguir estarão algumas imagens mostrando o quão popular `Vue` se situa no momento:
+- **Ranking dos frameworks mais usados em 2023 segundo o StackOverflow:**
+![ranking-frameworks](./public/img/frameworks-populares.png)
+
+
 - **Casos de Uso:** Identifiquem e discutam alguns casos de uso ideais para `Vue.js`, como `SPAs` (Single Page Applications), aplicativos móveis com `Vue Native`, e por que empresas escolhem `Vue` para seus projetos.
 
 ## 1.3 Primeiros Passos com Vue.js
@@ -121,12 +140,46 @@ Aqui vocês podem destacar como `Vue.js` ganhou popularidade por sua facilidade 
   vue create <nome-do-projeto> 
   # o nome do seu projeto deve ficar dentro das tags
   ```
+  - A seguir estão os passos-a-passos de como criar um projeto em `Vue`:
+
+  - Caso escolha uma opção *default*, o processo já vai automaticamente:
+
+    ![primeiro-passo](./public/img/passo1.png)
+  - Caso decida escolher manualmente:
+  ![segundo-passo](./public/img/passo2.png)
+
+  ![terceiroo-passo](./public/img/passo3.png)
+  ![quarto-passo](./public/img/passo4.png)
+
+  - Pronto! O seu projeto em `Vue` foi criado com sucesso!
+
   - É possível também intalar o `Vue.js` e criar um projeto ao mesmo tempo usando o seguinte comando:
   ```bash
   npm create vue@latest
   ```
-- **Estrutura do Projeto:** Forneçam uma visão geral da estrutura de pastas de um projeto Vue criado pelo CLI e explique a finalidade de cada pasta e arquivo principal.
-- **COLOCAR AS IMAGENS DAS PASTAS**
+- **Estrutura do Projeto:** um projeto `Vue` é composto por diferentes pastas e arquivos, a seguir estão alguns deles:
+
+![estrutura-do-projeto](./public/img/pastas.png)
+
+  - **node_modules:** Esta pasta contém as dependências do projeto, instaladas via npm ou Yarn.
+
+  - **public:** Aqui estão os arquivos estáticos do projeto, como HTML, imagens e outros recursos que não precisam ser processados pelo webpack.
+
+  - **src:** Esta é a pasta principal onde o código-fonte do aplicativo Vue está localizado.
+
+     - **assets:** Contém arquivos de mídia como imagens, ícones, etc.
+
+     - **components:** Aqui estão os componentes Vue reutilizáveis que compõem o aplicativo.
+
+     - **App.vue:** Este arquivo é o componente raiz do aplicativo Vue. Ele contém a estrutura básica do aplicativo e é responsável por renderizar os outros componentes.
+
+     - **main.js:** Este é o arquivo de entrada principal do aplicativo Vue. Ele inicializa a instância Vue e monta o aplicativo na página HTML.
+
+  - **babel.config.js:** Este arquivo contém a configuração do Babel para o projeto Vue. Ele define como o Babel deve transpilar o código JavaScript.
+  - **jsonconfig.js:** Configura a integração do Visual Studio Code com projetos JavaScript.
+  - **package-lock.json:** Registra as versões exatas das dependências instaladas pelo npm, garantindo consistência entre ambientes
+  - **package.json:** Este arquivo contém metadados do projeto e as dependências do npm. Ele também inclui scripts para executar tarefas comuns, como iniciar o servidor de desenvolvimento, compilar o código, etc.
+  - **vue.config.js:** Configura o ambiente de compilação do Vue CLI, permitindo personalização das opções de compilação, webpack e ambiente de desenvolvimento.
 
 - **Atualização da versão:** Para atualizar o pacote global do Vue CLI, utilize o comando:
   ```bash
@@ -140,12 +193,47 @@ Aqui vocês podem destacar como `Vue.js` ganhou popularidade por sua facilidade 
 - Componentes nos permitem dividir a interface do usuário em partes independentes e reutilizáveis e pensar em cada parte isoladamente. É muito semelhante a como aninhamos elementos HTML nativos, mas o `Vue.js` implementa seu próprio modelo de componente que nos permite encapsular conteúdo e lógica personalizados em cada componente. Geralmente, os componentes são estruturados em uma forma de árvore:
 ![componentes](./public/img/components.png)
 - Ao criar um projeto Vue com uma build, é possível utilizar a sintaxe de **Componentes de Arquivo-Único (SFC)**, com extensão *.vue*.
-- **COLOCAR CÓDIGO PRÁTICO, DE PREFERÊNCIA COM PROPS**
+- A seguir há um exemplo de componentes pai e filho se comunicando através da opção *props*:
+- **Classe-Pai**:
+```vue
+<template>
+  <MeuComponente :nome="nome"></MeuComponente>
+</template>
 
-**Orientações adicionais:**
-- **Criação de Componente:** Guiem a criação de um simples componente Vue, como um botão ou um cabeçalho. Mostrem o código do template, script e estilo.
-- **Integração do Componente:** Expliquem como integrar o componente criado em uma aplicação Vue, demonstrando o uso de props para passar dados e eventos para comunicação entre componentes.
+<script>
+import MeuComponente from './components/MeuComponente'
 
+export default {
+  name: 'App',
+  components: {
+    MeuComponente
+  },
+  data() {
+    return {
+      nome: "Pedro"
+    }
+  }
+}
+</script>
+
+<style></style>
+```
+
+- **Classe-Filho**:
+```vue
+<template>
+    <h1>Olá, eu sou o seu primeiro componente!</h1>
+    <p>Prazer em lhe conhecer, {{ nome }}</p>
+</template>
+
+<script>
+export default {
+    props: ['nome']
+}
+</script>
+
+<style></style>
+```
 # Seção 2: Arquitetura do Vue.js
 
 - Nesta seção explorem a arquitetura fundamental do `Vue.js`.
@@ -154,17 +242,8 @@ Aqui vocês podem destacar como `Vue.js` ganhou popularidade por sua facilidade 
 
 ## 2.1 Estrutura de Componentes do Vue.js
 
-- Detalhem que `Vue.js` é construído em torno de uma arquitetura de componentes modulares.
-- Destaquem que cada componente é uma instância que encapsula template, lógica e estilo de forma isolada.
-- **FALAR SOBRE O REQUISITO DE TER PELO MENOS UMA TAG SCRIPT OU UMA TEMPLATE**
-- Cada instância de componente `Vue` passa por uma série de etapas de inicialização quando é criada - por exemplo, ela precisa configurar a observação de dados, compilar o modelo, montar a instância no DOM e atualizar o DOM quando os dados mudam. No processo, também executa funções chamadas de **ganchos (hooks)** do ciclo de vida, dando aos usuários a oportunidade de adicionar seu próprio código em estágios específicos.
-![ciclo de vida de um componente vue](./public/img/lifecycle.png)
-
-### Orientações adicionais:
-
-1. **Definição de Componente:** Iniciem explicando o que é um componente no contexto do Vue.js, incluindo a sintaxe básica para declarar um componente.
-   
-   ```vue
+- A estrutura básica de um componente *.vue* é a seguinte:
+ ```vue
    <template>
      <div>{{ message }}</div>
    </template>
@@ -179,9 +258,16 @@ Aqui vocês podem destacar como `Vue.js` ganhou popularidade por sua facilidade 
    }
    </script>
 
-2. **Composição de Componentes:** Discutam como os componentes podem ser usados para construir interfaces de usuário complexas, explicando o conceito de componentes pai e filho e como dados são passados entre eles usando props.
+   <style>
+   div {
+    color: #fff;
+    background-color: #000;
+   }
+   </style>
+```
 
-3. **Exemplo Prático:** Forneçam um exemplo detalhado da criação de um pequeno aplicativo Vue composto por vários componentes interligados, como uma lista de tarefas. Mostrem cada passo, desde a criação dos componentes individuais até a sua composição em um aplicativo funcional.
+- Cada instância de componente `Vue` passa por uma série de etapas de inicialização quando é criada - por exemplo, ela precisa configurar a observação de dados, compilar o modelo, montar a instância no DOM e atualizar o DOM quando os dados mudam. No processo, também executa funções chamadas de **ganchos (hooks)** do ciclo de vida, dando aos usuários a oportunidade de adicionar seu próprio código em estágios específicos.
+![ciclo de vida de um componente vue](./public/img/lifecycle.png)
 
 ## 2.2 Sistema Reativo do Vue.js
 ### 2.2.1 Entendendo a reatividade
@@ -189,26 +275,83 @@ Aqui vocês podem destacar como `Vue.js` ganhou popularidade por sua facilidade 
 
 #### 2.2.1.1 Composition API
 - Nessa API, a maneira recomendada de declarar estado reativo é usando a função ref():
-- **COLOCAR CÓDIGO DE IMPORTAÇÃO**
+
+```javascript
+import { ref } from 'vue'
+const count = ref(0)
+```
+
 - ref() recebe o argumento e o retorna envolvido em um objeto ref com uma propriedade *.value*:
-- **COLOCAR CÓDIGO SIMPLES SOBRE ISSO**
+
+```javascript
+const count = ref(0)
+
+console.log(count) // { value: 0 }
+console.log(count.value) // 0
+
+count.value++
+console.log(count.value) // 1
+```
+
 - Quando você usa um *ref* em um modelo e altera o valor do *ref* depois, o `Vue` detecta automaticamente a mudança e atualiza o DOM de acordo. Isso é possível com um sistema de reatividade baseado no rastreamento de dependências. Quando um componente é renderizado pela primeira vez, o `Vue` rastreia todos os *refs* que foram usados durante a renderização. Mais tarde, quando um *ref* é alterado, ele aciona uma nova renderização para os componentes que o estão rastreando. No JavaScript padrão, não há maneira de detectar o acesso ou a alteração de variáveis simples. No entanto, podemos interceptar as operações de obtenção e configuração das propriedades de um objeto usando métodos **getter** e **setter**. A propriedade *.value* dá ao `Vue` a oportunidade de detectar quando um *ref* foi acessado ou alterado. Por baixo dos panos, o `Vue` realiza o rastreamento em seu **getter** e realiza o acionamento em seu **setter**. 
 - **FALAR SOBRE O REACTIVE TAMBÉM**
 
 #### 2.2.1.2 Options API
 - Nessa API, utiliza-se a opção *data* para declarar o estado reativo de um componente. O valor da opção deve ser uma função que retorna um objeto. O `Vue` chamará a função ao criar uma nova instância do componente e envolverá o objeto retornado em seu sistema de reatividade. Todas as propriedades deste objeto são chamadas na instância do componente (`this` em métodos e ganchos de ciclo de vida):
-- **COLOCAR EXEMPLO PRÁTICO**
+
+```javascript
+export default {
+  data() {
+    return {
+      count: 1
+    }
+  },
+
+  mounted() {
+    console.log(this.count) // 1
+    this.count = 2
+  }
+}
+```
+
 - Em `Vue 3`, os dados são tornados reativos através do uso de Proxies do JavaScript.
 
 ### 2.2.1.3 Atualização no DOM
 - Quando você altera o estado reativo, o DOM é atualizado automaticamente. No entanto, deve-se notar que as atualizações do DOM não são aplicadas de forma síncrona. Em vez disso, o `Vue` as armazena em buffer até o "próximo tick" no ciclo de atualização para garantir que cada componente seja atualizado apenas uma vez, independentemente de quantas alterações de estado você tenha feito.Para aguardar a conclusão da atualização do DOM após uma alteração de estado, você pode usar a API global nextTick():
-- **COLOCAR EXEMPLO PRÁTICO**
+```javascript
+import { nextTick } from 'vue'
+
+export default {
+  methods: {
+    async increment() {
+      this.count++
+      await nextTick()
+      // Now the DOM is updated
+    }
+  }
+}
+```
 
 ### 2.2.2 Observadores e propriedades computadas
 - No `Vue.js`, as "propriedades computadas" são propriedades cujos valores são derivados de outras propriedades de dados. Elas são como funções que são armazenadas em cache com base em suas dependências. As propriedades computadas são definidas nas opções do componente `Vue` e retornam um valor com base nas propriedades de dados da instância `Vue`.
 - A principal vantagem de usar propriedades computadas é que elas oferecem uma maneira de realizar manipulação de dados ou cálculos enquanto mantêm o modelo simples e legível. As propriedades computadas são reativas, o que significa que são atualizadas automaticamente sempre que suas dependências mudam.
 - Em vez de uma propriedade computada, podemos definir a mesma função como um *método*. Para o resultado final, as duas abordagens são de fato exatamente iguais. No entanto, a diferença é que as propriedades computadas são armazenadas em cache com base em suas dependências reativas. Uma propriedade computada só será reavaliada quando algumas de suas dependências reativas tiverem mudado. Em comparação, a chamada de métodos sempre rodará a função quando for preciso re-renderizar elementos
-- **COLOCAR EXEMPLO PRÁTICO**
+
+```javascript
+export default {
+  data() {
+    return {
+      count: 1
+    }
+  },
+  computed: {
+    contagemVezesDez() {
+      return this.count * 10
+    }
+  }
+}
+```
+
 - Isso também significa que a seguinte propriedade computada nunca será atualizada, porque `Date.now()` não é uma dependência reativa:
 
 ```javascript
@@ -252,31 +395,236 @@ const vnode = {
 ### 2.3.1 Props
 - Todas as props formam uma ligação unidirecional descendente entre a propriedade filho e a propriedade pai, ou seja, quando a propriedade pai é atualizada, a mudança fluirá para o filho, mas não o contrário. Isso impede que os componentes filhos alterem acidentalmente o estado do pai, o que pode tornar o fluxo de dados do aplicativo mais difícil de entender.
 - Além disso, toda vez que o componente pai é atualizado, todas as props no componente filho serão atualizadas com o valor mais recente. Isso significa que você não deve tentar alterar uma prop dentro de um componente filho.
-- **COLOCAR EXEMPLO PRÁTICO**
+- **Classe-Pai**:
+
+```vue
+<template>
+  <MeuComponente :idade="idade"></MeuComponente>
+</template>
+
+<script>
+import MeuComponente from './components/MeuComponente'
+
+export default {
+  name: 'App',
+  components: {
+    MeuComponente
+  },
+  data() {
+    return {
+      idade: 20
+    }
+  }
+}
+</script>
+
+<style></style>
+```
+- **Classe-Filha**:
+```vue
+<template>
+    <h1>Parabéns! Agora você tem {{ idade }} anos.</h1>
+</template>
+
+<script>
+export default {
+    props: ['idade']
+}
+</script>
+
+<style></style>
+```
 
 ## 2.3.2 Eventos personalizados
 - Em Vue.js, um evento personalizado é uma forma de os componentes filhos se comunicarem com os componentes pais. Os componentes `Vue` podem emitir eventos personalizados usando o método $emit, e os componentes pais podem ouvir esses eventos usando a diretiva `v-on`.
   - **Componente Filho (Emitindo Evento Personalizado)**: Em um componente filho, você pode usar o método `$emit` para emitir um evento personalizado. O evento personalizado pode incluir dados que você deseja passar para o componente pai.
-- **EXEMPLO PRÁTICO DO COMPONENTE FILHO**
+```vue
+<template>   <!-- <MyComponent> template -->
+<button @click="$emit('aumentar', 1)"><slot></slot></button>
+</template>
+
+<script>
+export default {
+}
+</script>
+
+<style></style>
+```
   - **Componente Pai (Ouvindo o Evento Personalizado)**: No componente pai, você pode usar a diretiva `v-on` para ouvir o evento personalizado emitido pelo componente filho. Quando o evento ocorre, o método associado no componente pai será executado.
-- **EXEMPLO PRÁTICO DO COMPONENTE PAI**
+
+```vue
+<template>
+  <MeuComponente @aumentar="(x) => count += x">Incrementar</MeuComponente>
+  <p> {{ count }} </p>
+</template>
+
+<script>
+import MeuComponente from './components/MeuComponente'
+
+export default {
+  name: 'App',
+  components: {
+    MeuComponente
+  },
+  data() {
+    return {
+      count: 0
+    }
+  }
+}
+</script>
+
+<style></style>
+```
 
 ## 2.3.3 Diretiva `v-model`
 - `v-model` é uma diretiva no `Vue.js` que é usada principalmente para criar vinculações bidirecionais entre dados e elementos de formulário. Ele fornece uma maneira fácil de sincronizar o estado de uma variável de dados `Vue` com um elemento de entrada, como `<input>`, `<textarea>`, `<select>`, etc.
 - Quando você usa `v-model` em um elemento de formulário, o `Vue` cria automaticamente uma vinculação entre o valor do elemento de entrada e a propriedade de dados especificada pelo `v-model`.
-- **EXEMPLO DE FORMULÁRIO**
+
+```vue
+<template>
+    <h1>Veja a mágica acontecer!</h1>
+    <input v-model="palavra" type="text">
+</template>
+
+<script>
+export default {
+    data() {
+      return {
+        palavra: ''
+      }
+    }
+}
+</script>
+
+<style></style>
+```
 
 ## 2.3.4 Slots
 - em `Vue.js`, os *slots* são uma funcionalidade poderosa que permite criar componentes de forma flexível e reutilizável, possibilitando a passagem de conteúdo do componente pai para o componente filho. Os *slots* permitem que você injete conteúdo HTML ou outros componentes em áreas específicas de um componente filho a partir de um componente pai.
-- O conteúdo do slot tem acesso ao escopo de dados do componente pai, pois é definido no pai. Por exemplo:  **COLOCAR EXEMPLO**
-- Aqui, ambas as interpolações `{{ conteudo }}` renderizarão o mesmo conteúdo.
+- O conteúdo do slot tem acesso ao escopo de dados do componente pai, pois é definido no pai. Por exemplo:  
+
+- **Componente-Pai**:
+```vue
+<template>
+    <p>Vocês já viram {{ meuNome }}</P>
+    <ComponenteFilho>
+      <button>{{ meuNome }}</button>
+    </ComponenteFilho>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      meuNome: "O maior botão"
+    }
+  }
+}
+</script>
+
+<style></style>
+```
+
+
+- **Componente-Filho**:
+```vue
+<template>
+    <h1>Insira um botão aqui!</h1>
+    <slot></slot>
+</template>
+
+<script>
+export default {
+}
+</script>
+
+<style></style>
+```
+
 - O conteúdo do slot não tem acesso aos dados do componente filho. Expressões nos modelos Vue só podem acessar o escopo em que são definidas, de acordo com o escopo léxico do JavaScript.
 
-**ANALISAR SE REALMENTE COLOCO ESSE FINAL DOS SLOTS** 
 - **Slots Nomeados e Não Nomeados**: Você pode ter slots nomeados e não nomeados. Os slots nomeados permitem que você especifique onde o conteúdo deve ser inserido de acordo com o nome do slot. Já os slots não nomeados são usados para conteúdo que não é especificamente direcionado para um slot nomeado.
-- **COLOCAR EXEMPLO PRÁTICO** 
-- **Slots com Escopo (Scoped Slots)**: Os slots com escopo permitem que o componente filho acesse dados e métodos do componente pai. Isso é útil quando você deseja fornecer mais contexto ou funcionalidade ao conteúdo passado para o slot.
-- **COLOCAR EXEMPLO PRÁTICO**
+
+- **Componente-Pai**:
+```vue
+<BaseLayout>
+  <template #header> // #header = v-slot:header
+    <h1>Título</h1>
+  </template>
+
+  <template #default>
+    <p>Parágrafo.</p>
+  </template>
+
+  <template #footer>
+    <p>Rodapé</p>
+  </template>
+</BaseLayout>
+```
+
+- **Componente-Filho**:
+```vue
+<div class="container">
+  <header>
+    <slot name="header"></slot>
+  </header>
+  <main>
+    <slot></slot>
+  </main>
+  <footer>
+    <slot name="footer"></slot>
+  </footer>
+</div>
+```
+
+- **Slots com Escopo (Scoped Slots)**: Os slots com escopo permitem que o componente pai acesse dados e métodos do componente filho. Isso é útil quando você deseja fornecer mais contexto ou funcionalidade ao conteúdo passado para o slot.
+- **Componente-Pai**:
+
+```vue
+<template>
+  <MeuComponente v-slot="slotProps">
+  {{ slotProps.text }} {{ slotProps.count }}
+</MeuComponente>
+</template>
+
+<script>
+import MeuComponente from './components/MeuComponente'
+
+export default {
+  name: 'App',
+  components: {
+    MeuComponente
+  }
+}
+</script>
+
+<style>
+
+</style>
+
+```
+
+- **Componente-Filho**:
+```vue
+<template>   <!-- <MyComponent> template -->
+<div>
+  <slot :text="greetingMessage" :count="1"></slot>
+</div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            greetingMessage: "oi"
+        }
+    }
+}
+</script>
+
+<style></style>
+```
 
 ### 2.3.5 Provedores (provide) e Injetores (inject): 
 - Normalmente, quando precisamos passar dados do pai para um componente filho, usamos `props`. No entanto, imagine o caso em que temos uma árvore de componentes grande e um componente profundamente aninhado precisa de algo de um componente ancestral distante. Com apenas `props`, teríamos que passar a mesma propriedade por toda a cadeia de pais:
@@ -284,7 +632,24 @@ const vnode = {
 - Podemos resolver esse problema com o uso de `provide` e de `inject`. Um componente pai pode servir como provedor de dependências para todos os seus descendentes. Qualquer componente na árvore de descendentes, independentemente de quão profundo esteja, pode injetar dependências fornecidas pelos componentes acima na sua cadeia de pais.
 ![provide-inject](./public/img/provide-inject.png)
 - Para que esse sistema de transferência de dados funcione, é preciso utilizar a opção `project` - ela fornece os dados para os descendentes - e a opção `inject` - responsável por inserir os dados do pai no componente filho, você pode acessar esse dado pela propriedade de `data()`.
-- **COLOCAR EXEMPLO PRÁTICO**
+- **Componente-Pai**:
+
+```javascript
+export default {
+  provide: {
+    message: 'hello!'
+  }
+}
+```
+- **Componente-Filho**:
+```javascript
+export default {
+  inject: ['message'],
+  created() {
+    console.log(this.message) // injected value
+  }
+}
+```
 
 # Seção 3: Padrões de Projeto e Implementação Avançada no Vue.js
 
