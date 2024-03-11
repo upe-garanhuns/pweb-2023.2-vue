@@ -1,41 +1,36 @@
 <template>
- <TheHeader v-if="showHeader"/>
-
-<div v-show="showName" >
-  Nome:{{ Firstname }} <br>
-  Sobrenome: {{ Lastname }}
-</div>
-
-<div v-if="acessLevel==='admin'"> Usuario Admin</div>
-<div v-else-if="acessLevel === 'marketing'">Usuario Marketing</div>
-<div v-else>Usuario normal</div>
-
-  <img
-   
-  alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img alt="Vue logo" src="./assets/logo.png">
+    <button @click="updateUser()">
+        Atualizar perfil
+    </button>
+  <HelloWorld
+      user=""
+      msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import TheHeader from './components/TheHeader.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    TheHeader
+    HelloWorld
   },
+    data() {
+      return {
+      }
+    },
 
-  data() {
-    return {
-      showHeader:true,
-      Firsname:'Jon',
-      Lastname: 'Snow',
-      showName: false,
-      acessLevel: 'admin'
-    }
-  },
+    methods: {
+        updateUser() {
+            const newUser = {
+                first_name: 'mylena',
+                last_name: 'mahatma',
+                email: 'mylena@mahatma.com'
+            }
+            this.$store.commit('storeUser', newUser)
+        }
+    },
 }
 </script>
 
@@ -44,7 +39,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
