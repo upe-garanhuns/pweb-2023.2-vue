@@ -459,7 +459,7 @@ export default {
 
 ## 2.3.2 Eventos personalizados
 - Em Vue.js, um evento personalizado é uma forma de os componentes filhos se comunicarem com os componentes pais. Os componentes `Vue` podem emitir eventos personalizados usando o método $emit, e os componentes pais podem ouvir esses eventos usando a diretiva `v-on`.
-  - **Componente Filho (Emitindo Evento Personalizado)**: Em um componente filho, você pode usar o método `$emit` para emitir um evento personalizado. O evento personalizado pode incluir dados que você deseja passar para o componente pai.
+  - **Componente-Filho (Emitindo Evento Personalizado)**: Em um componente filho, você pode usar o método `$emit` para emitir um evento personalizado. O evento personalizado pode incluir dados que você deseja passar para o componente pai.
 ```vue
 <template>   <!-- <MyComponent> template -->
 <button @click="$emit('aumentar', 1)"><slot></slot></button>
@@ -472,7 +472,7 @@ export default {
 
 <style></style>
 ```
-  - **Componente Pai (Ouvindo o Evento Personalizado)**: No componente pai, você pode usar a diretiva `v-on` para ouvir o evento personalizado emitido pelo componente filho. Quando o evento ocorre, o método associado no componente pai será executado.
+  - **Componente-Pai (Ouvindo o Evento Personalizado)**: No componente pai, você pode usar a diretiva `v-on` para ouvir o evento personalizado emitido pelo componente filho. Quando o evento ocorre, o método associado no componente pai será executado.
 
 ```vue
 <template>
