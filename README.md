@@ -179,7 +179,7 @@ function ref(value) {
 
   - Pronto! O seu projeto em `Vue` foi criado com sucesso!
 
-  - É possível também intalar o `Vue.js` e criar um projeto ao mesmo tempo usando o seguinte comando:
+  - É possível também instalar o `Vue.js` e criar um projeto ao mesmo tempo usando o seguinte comando:
   ```bash
   npm create vue@latest
   ```
