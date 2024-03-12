@@ -85,7 +85,7 @@ function ref(value) {
 
 ## 1.2 Por que Vue.js?
 
-Aqui vocês podem destacar como `Vue.js` ganhou popularidade por sua facilidade de integração, reatividade, e a eficiente maneira de desenvolver componentes reutilizáveis.
+- Porque `Vue.js` é um framework JavaScript flexível e fácil de aprender, ideal para desenvolvimento web. Ele oferece componentização, reatividade, um ecossistema próspero de bibliotecas e plugins, além de ser leve e rápido. A documentação é abundante e há uma comunidade ativa de desenvolvedores. Além disso, muitas empresas estão adotando `Vue.js` devido à sua facilidade de uso e desempenho.
 
 ### 1.2.1 Comparação
 
@@ -109,11 +109,36 @@ Aqui vocês podem destacar como `Vue.js` ganhou popularidade por sua facilidade 
 ### 1.2.2 Popularidade
 
 - A seguir estarão algumas imagens mostrando o quão popular `Vue` se situa no momento:
+
 - **Ranking dos frameworks mais usados em 2023 segundo o StackOverflow:**
 ![ranking-frameworks](./public/img/frameworks-populares.png)
 
+- **Empresas que usam o framework:**
 
-- **Casos de Uso:** Identifiquem e discutam alguns casos de uso ideais para `Vue.js`, como `SPAs` (Single Page Applications), aplicativos móveis com `Vue Native`, e por que empresas escolhem `Vue` para seus projetos.
+![empresas](./public/img/empresas.png)
+
+- **Repositório do `Vue 2` e do `Vue 3` no github respectivamente:**
+![vue-2](./public/img/vue-2.png)
+![vue-3](./public/img/vue-3.png)
+
+### 1.2.3 Casos de Uso
+#### 1.2.3.1 Single Page Application (SPA)
+- Single Page Application (SPA) é um tipo de aplicativo web que opera em uma única página e oferece uma experiência de usuário fluida, sem a necessidade de recarregar a página inteira durante a interação do usuário. `Vue.js` é uma escolha popular para desenvolver SPAs devido à sua arquitetura reativa e sua capacidade de gerenciar eficientemente o estado da aplicação.
+- A principal característica de uma SPA é que, após a página inicial ser carregada, todas as outras interações são tratadas dinamicamente no navegador, geralmente usando JavaScript para manipular o DOM e atualizar o conteúdo da página conforme necessário. Isso cria uma experiência de usuário mais rápida e responsiva, sem a necessidade de recarregar a página a cada nova solicitação.
+- O Vue fornece bibliotecas e suporte abrangente de ferramentas para construção de SPAs, como:
+
+  - Roteador do lado do cliente
+  - Cadeia de ferramentas de compilação extremamente rápida
+  - Suporte a IDE
+  - Ferramentas de desenvolvimento do navegador
+  - Integrações ao TypeScript
+  - Utilitários de teste
+
+#### 1.2.3.2 Ionic Vue
+- Ionic Vue é uma integração do `Vue.js` com o framework Ionic, que é amplamente utilizado para o desenvolvimento de aplicativos móveis multiplataforma. Com Ionic Vue, os desenvolvedores podem criar aplicativos móveis utilizando as práticas e componentes familiares do `Vue.js`. Ionic Vue fornece uma coleção de componentes de IU otimizados para dispositivos móveis, como botões, listas, navegação e muito mais. Além disso, é possível utilizar recursos como acesso à câmera, GPS e armazenamento local para criar aplicativos móveis completos e funcionais.
+
+#### 1.2.3.3 Electron
+- Electron é um framework que permite desenvolver aplicativos desktop multiplataforma utilizando tecnologias web, incluindo HTML, CSS e JavaScript. Com o Vue.js, os desenvolvedores podem criar interfaces de usuário ricas e interativas para aplicativos desktop utilizando componentes Vue. O Vue.js pode ser integrado facilmente em aplicativos Electron para gerenciar a renderização da interface do usuário, manipular o estado da aplicação e responder a eventos do usuário. Isso permite que os desenvolvedores criem aplicativos desktop poderosos e modernos, que funcionam em sistemas operacionais como Windows, macOS e Linux.
 
 ## 1.3 Primeiros Passos com Vue.js
 
@@ -144,8 +169,9 @@ Aqui vocês podem destacar como `Vue.js` ganhou popularidade por sua facilidade 
 
   - Caso escolha uma opção *default*, o processo já vai automaticamente:
 
-    ![primeiro-passo](./public/img/passo1.png)
+  ![primeiro-passo](./public/img/passo1.png)
   - Caso decida escolher manualmente:
+  
   ![segundo-passo](./public/img/passo2.png)
 
   ![terceiroo-passo](./public/img/passo3.png)
