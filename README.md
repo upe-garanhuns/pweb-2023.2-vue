@@ -947,13 +947,11 @@ A renderização condicional e manipulação de listas são aspectos cruciais na
 
 ## 5 Conclusão e Reflexão
 
-- **Discutam as Lições Aprendidas**: Reflitam sobre o que aprenderam durante o processo de desenvolvimento do projeto. Isso pode incluir novas habilidades técnicas, insights sobre design de software ou aperfeiçoamento de habilidades de trabalho em equipe.
+- **Lições Aprendidas**: O estudo do `Vue` foi essencial para compreender a interatividade na web, a programação reativa e a aplicação de padrões de projetos dentro de um framework. Através dessa pesquisa, desenvolvemos habilidades mais sólidas em desenvolvimento web e uma compreensão mais profunda do ecossistema de frameworks modernos, sobretudo em relação àqueles similares ao `Vue`.
 
-- **Avaliem o Uso do Vue.js**: O vue js se mostrou uma escolha boa para desenvolvimento de projeto. Por ser bastante intuitivo, ter uma documentação completamente acessivel e didatica contando com cursos e videos, tem uma curva de aprendizagem mais rápida que outros frameworks. A reatividade do Vue.js proporciona uma vivencia mais intuitiva, facilitando sua utilização. Os pontos fortes do Vue,js é sem duvida sua flexibilidade, adptabilidade e documentação que permitem um aprendizado mais eficiente. Contudo, um dos pontos a se expor seria que em projetos maiores a gestão de estado pode se tornar bem complexa, é preciso ter um conhecimento maior do VUEX.
-- 
-- **Considerem Melhorias Futuras** : Pensem em como o projeto pode ser expandido ou melhorado. Discutam funcionalidades adicionais que poderiam ser implementadas ou como a arquitetura poderia ser otimizada para maior eficiência e escalabilidade.
+- **Avaliando o uso do Vue.js**: O vue js se mostrou uma escolha boa para desenvolvimento de projeto. Por ser bastante intuitivo, ter uma documentação completamente acessivel e didatica contando com cursos e videos, tem uma curva de aprendizagem mais rápida que outros frameworks. A reatividade do Vue.js proporciona uma vivencia mais intuitiva, facilitando sua utilização. Os pontos fortes do Vue,js é sem duvida sua flexibilidade, adptabilidade e documentação que permitem um aprendizado mais eficiente. Contudo, um dos pontos a se expor seria que em projetos maiores a gestão de estado pode se tornar bem complexa, é preciso ter um conhecimento maior do VUEX.
 
-- **Compartilhem Recursos Úteis**: Finalizem a apresentação compartilhando recursos que foram particularmente úteis durante o desenvolvimento do projeto. Isso pode incluir documentação, tutoriais, bibliotecas ou ferramentas.
+- **Recursos Úteis**:
 
 - https://pt.vuejs.org/
 - https://vuex.vuejs.org/ptbr/
@@ -963,3 +961,22 @@ A renderização condicional e manipulação de listas são aspectos cruciais na
 - https://medium.com/engenharia-arquivei/arquitetura-flux-26a419871ade
 - https://revista.fatectq.edu.br/interfacetecnologica/article/view/551/359
 - https://ehsan-movaffagh.medium.com/reactivity-system-in-vue-js-8c8093436eb1
+- https://vuejs.org/guide/components/registration.html
+- https://vuejs.org/guide/scaling-up/sfc.html
+- https://vuejs.org/guide/essentials/component-basics.html
+- https://cli.vuejs.org/guide/creating-a-project.html
+- https://vuejs.org/guide/extras/web-components.html
+- https://vuejs.org/guide/essentials/reactivity-fundamentals.html
+- https://vuejs.org/guide/extras/reactivity-in-depth.html
+- https://vuejs.org/api/reactivity-core.html
+- https://vuejs.org/guide/components/registration.html
+- https://vuejs.org/guide/essentials/lifecycle.html
+- https://vuejs.org/guide/quick-start.html
+- https://vuejs.org/guide/extras/ways-of-using-vue.html
+- https://vueschool.io/lessons/introduction-to-the-vue-js-3-composition-api?friend=vuejs
+- https://vuejs.org/guide/extras/composition-api-faq
+- https://www.techtarget.com/searchapparchitecture/definition/reactive-programming
+- https://www.baeldung.com/cs/reactive-programming
+- https://www.youtube.com/watch?v=lG0Ys-2d4MA
+- https://github.com/vuejs/vue
+- https://github.com/vuejs/core
