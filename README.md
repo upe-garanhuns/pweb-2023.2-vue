@@ -17,7 +17,7 @@ Esta é uma *overview* de diferentes conceitos pertinentes ao framework `Vue.js`
 ### 1.1.2 Framework progressivo
 - Um **framework progressivo** é uma abordagem para o desenvolvimento de frameworks que visa flexibilidade e adaptação gradual. Esses, a exemplo do `Vue.js` permitem que os desenvolvedores usem apenas as partes do framework que precisam e estendam ou personalizem conforme necessário. Essa abordagem contrasta com os frameworks monolíticos, que frequentemente fornecem uma grande base de código e muitos recursos, muitos dos quais podem não ser necessários.
   - Vantagens: flexibilidade, leveza, extensibilidade e iniciação rápida.
-  - Desvantagens:
+  - Desvantagens: dependência da comunidade e compatibilidade e interoperabilidade. 
 
   ![framework progressivo](./public/img/framework-progressivo.png)
   - O código presente na pasta **framework_progressivo** na branch *develop-pedro-correia* mostra uma aplicação bem simples de como o `Vue` pode ser adicionado a uma aplicação já existente.
@@ -220,7 +220,7 @@ function ref(value) {
 ![componentes](./public/img/components.png)
 - Ao criar um projeto Vue com uma build, é possível utilizar a sintaxe de **Componentes de Arquivo-Único (SFC)**, com extensão *.vue*.
 - A seguir há um exemplo de componentes pai e filho se comunicando através da opção *props*:
-- **Classe-Pai**:
+- **Componente-Pai**:
 ```vue
 <template>
   <MeuComponente :nome="nome"></MeuComponente>
@@ -245,7 +245,7 @@ export default {
 <style></style>
 ```
 
-- **Classe-Filho**:
+- **Componente-Filho**:
 ```vue
 <template>
     <h1>Olá, eu sou o seu primeiro componente!</h1>
@@ -261,10 +261,6 @@ export default {
 <style></style>
 ```
 # Seção 2: Arquitetura do Vue.js
-
-- Nesta seção explorem a arquitetura fundamental do `Vue.js`.
-- Abordem sua estrutura de componentes, o sistema reativo e o que isso significa e a comunicação entre componentes.
-- O objetivo é fornecer aos colegas um entendimento detalhado dos aspectos arquiteturais do `Vue.js`, permitindo uma apreciação mais profunda de como aplicativos são construídos e gerenciados.
 
 ## 2.1 Estrutura de Componentes do Vue.js
 
@@ -320,7 +316,6 @@ console.log(count.value) // 1
 ```
 
 - Quando você usa um *ref* em um modelo e altera o valor do *ref* depois, o `Vue` detecta automaticamente a mudança e atualiza o DOM de acordo. Isso é possível com um sistema de reatividade baseado no rastreamento de dependências. Quando um componente é renderizado pela primeira vez, o `Vue` rastreia todos os *refs* que foram usados durante a renderização. Mais tarde, quando um *ref* é alterado, ele aciona uma nova renderização para os componentes que o estão rastreando. No JavaScript padrão, não há maneira de detectar o acesso ou a alteração de variáveis simples. No entanto, podemos interceptar as operações de obtenção e configuração das propriedades de um objeto usando métodos **getter** e **setter**. A propriedade *.value* dá ao `Vue` a oportunidade de detectar quando um *ref* foi acessado ou alterado. Por baixo dos panos, o `Vue` realiza o rastreamento em seu **getter** e realiza o acionamento em seu **setter**. 
-- **FALAR SOBRE O REACTIVE TAMBÉM**
 
 #### 2.2.1.2 Options API
 - Nessa API, utiliza-se a opção *data* para declarar o estado reativo de um componente. O valor da opção deve ser uma função que retorna um objeto. O `Vue` chamará a função ao criar uma nova instância do componente e envolverá o objeto retornado em seu sistema de reatividade. Todas as propriedades deste objeto são chamadas na instância do componente (`this` em métodos e ganchos de ciclo de vida):
@@ -352,7 +347,7 @@ export default {
     async increment() {
       this.count++
       await nextTick()
-      // Now the DOM is updated
+      // agora a DOM está atualizada
     }
   }
 }
@@ -421,7 +416,7 @@ const vnode = {
 ### 2.3.1 Props
 - Todas as props formam uma ligação unidirecional descendente entre a propriedade filho e a propriedade pai, ou seja, quando a propriedade pai é atualizada, a mudança fluirá para o filho, mas não o contrário. Isso impede que os componentes filhos alterem acidentalmente o estado do pai, o que pode tornar o fluxo de dados do aplicativo mais difícil de entender.
 - Além disso, toda vez que o componente pai é atualizado, todas as props no componente filho serão atualizadas com o valor mais recente. Isso significa que você não deve tentar alterar uma prop dentro de um componente filho.
-- **Classe-Pai**:
+- **Componente-Pai**:
 
 ```vue
 <template>
@@ -446,7 +441,8 @@ export default {
 
 <style></style>
 ```
-- **Classe-Filha**:
+- **Componente-Filho**:
+
 ```vue
 <template>
     <h1>Parabéns! Agora você tem {{ idade }} anos.</h1>
