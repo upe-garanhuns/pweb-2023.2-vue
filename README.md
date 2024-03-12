@@ -963,9 +963,3 @@ A renderização condicional e manipulação de listas são aspectos cruciais na
 - https://medium.com/engenharia-arquivei/arquitetura-flux-26a419871ade
 - https://revista.fatectq.edu.br/interfacetecnologica/article/view/551/359
 - https://ehsan-movaffagh.medium.com/reactivity-system-in-vue-js-8c8093436eb1
-
-
-- **Considerem Melhorias Futuras** : Pensem em como o projeto pode ser expandido ou melhorado. Discutam funcionalidades adicionais que poderiam ser implementadas ou como a arquitetura poderia ser otimizada para maior eficiência e escalabilidade.
-
-- **Compartilhem Recursos Úteis**: Finalizem a apresentação compartilhando recursos que foram particularmente úteis durante o desenvolvimento do projeto. Isso pode incluir documentação, tutoriais, bibliotecas ou ferramentas.
-  
