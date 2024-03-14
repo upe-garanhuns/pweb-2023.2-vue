@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/images/Vue.png">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .box {
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background-color: #fff;
+            margin: 20px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        body {
+            background-color: #eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+
+        p, h3, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            background-color: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        li img {
+           width: 70px; 
+           height: 100px;
+        }
+
+        li.fav {
+            background-color: #ff9ed2;
+            color: white;
+        }
+
+    </style>
+    <title>Vue</title>
+</head>
+<body>
+    <h1>Meus livros!</h1>
+
+    <!-- Vue só está controlando o que está dentro da div-->
+    <div id="app">
+        <div v-if="showBooks">
+            <ul>
+                <li @click="toggleFavBook(book)" v-for="book in books" :class="{ fav: book.isFav }">
+                    <img :src="book.img_path" alt="book.title">
+                    <h3> {{ book.title }} </h3>
+                    <p> {{ book.author }} </p>
+                </li>
+                <hr>
+                <li v-for="book in filteredBooks" :class="{ fav: book.isFav }">
+                    <img :src="book.img_path" alt="book.title">
+                    <h3> {{ book.title }} </h3>
+                    <p> {{ book.author }} </p>
+                </li>
+            </ul>
+        </div>
+        
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+
+        <div v-show="showBooks"> <!-- só muda o CSS, enquanto o v-if tira totalmente do HTML. Remover do HTML é bem mais custoso -->
+            E esses são os meus livros!
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
