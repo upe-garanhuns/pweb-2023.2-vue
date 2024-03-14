@@ -35,7 +35,7 @@
                 <input v-model="idDependente" name="id" type="text" placeholder="ID" required>
             </section>
 
-            <button @click="irTelaHome" type="submit">Cadastrar</button>
+            <button type="submit">Cadastrar</button>
         </form>
     </section>
 </template>
@@ -61,11 +61,9 @@ export default {
     },
     methods: {
         async handleSubmit(e) {
-            await cadastrarAtividade(e);        
+            await cadastrarAtividade(e);
+            this.$router.push('/home')        
         },
-        irTelaHome() {
-            this.$router.push('/home')
-        }
     }
 }
 

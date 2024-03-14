@@ -9,7 +9,7 @@ export async function capturarId(e, token) {
         }
     })
         .then(res => res.json())
-        .then(data => sessionStorage.setItem('id', data))
+        .then(data => sessionStorage.setItem('id', data.id))
         .catch(err => console.log(err))
     sessionStorage.setItem('email', email)
     console.log(e)
@@ -27,7 +27,7 @@ export async function capturarIdDependente(e, token) {
         }
     })
         .then(res => res.json())
-        .then(data => sessionStorage.setItem('id', data))
+        .then(data => sessionStorage.setItem('id', data.id))
         .catch(err => console.log(err))
     sessionStorage.setItem('email', email)
     console.log(e)

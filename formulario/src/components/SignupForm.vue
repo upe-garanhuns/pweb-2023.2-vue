@@ -19,6 +19,12 @@
             {{ skill }}
         </div>
 
+        <label for="data">Data:</label>
+        <input name="data" type="date" v-model="data" @keyup="addSkill">
+        <div v-for="skill in skills" class="skill" @click="deleteSkill">
+            {{ skill }}
+        </div>
+
         <div class="submit">
             <button>Create an account</button>
         </div>
@@ -61,7 +67,8 @@ export default {
             conditions: false,
             tempSkill: "",
             skills: [],
-            passwordError: ""
+            passwordError: "",
+            data: ""
             //names: []
         }
     },

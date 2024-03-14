@@ -1,4 +1,9 @@
 <template>
+    <nav>
+        <router-link :to="{ name: 'login'}">Login - Responsável</router-link> |
+        <router-link :to="{ name: 'login-dependente'}">Login - Dependente</router-link> |
+        <router-link :to="{ name: 'cadastro' }">Cadastro - Responsável</router-link> 
+      </nav>
     <section class="container-principal">
         <form  @submit.prevent="handleSubmit" action="POST">
             <section class="conjunto">
@@ -46,12 +51,7 @@ export default {
     },
     methods: {
         async handleSubmit(e) {
-            let cadastro
-            if (this.url === "cadastro") {
-                await cadastrarResponsavel(e)
-            } else if (this.url == "home") {
-               await cadastrarDependente(e);
-            }            
+            await cadastrarResponsavel(e)            
         }
     }
 }

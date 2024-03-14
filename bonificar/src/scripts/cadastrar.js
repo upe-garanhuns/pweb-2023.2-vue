@@ -37,7 +37,7 @@ export async function cadastrarDependente(e) {
         .then(res => res.json())
         .then(data => console.log(data))
         .catch(err => console.log(err))
-    console.log(e)
+    console.log("e- do cadastro", e)
 }
 
 export async function cadastrarAtividade(e) {
@@ -60,5 +60,6 @@ export async function cadastrarAtividade(e) {
         .then(res => res.json())
         .then(data => console.log(data))
         .catch(err => console.log(err))
-    console.log(e)
+        console.log(e.target[0].value, e.target[1].value, e.target[2].value, e.target[3].value, e.target[4].value, sessionStorage.getItem('id'))
+        console.log(e)
 }

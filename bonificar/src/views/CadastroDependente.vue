@@ -26,7 +26,7 @@
                 <input v-model="saldo" name="saldo" type="number" placeholder="saldo" required>
             </section>
 
-            <button @click="irTelaHome" type="submit">Cadastrar</button>
+            <button type="submit">Cadastrar</button>
         </form>
     </section>
 </template>
@@ -52,16 +52,9 @@ export default {
     },
     methods: {
         async handleSubmit(e) {
-            let cadastro
-            if (this.url === "cadastro") {
-                await cadastrarResponsavel(e)
-            } else if (this.url == "cadastro-dependente") {
-               await cadastrarDependente(e);
-            }            
+            await cadastrarDependente(e);  
+            this.$router.push('/home')   
         },
-        irTelaHome() {
-            this.$router.push('/home')
-        }
     }
 }
 
